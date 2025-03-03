@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-class Segment{
+public class Segment{
     private Point point1;
     private Point point2;
 
@@ -19,8 +19,8 @@ class Segment{
     }
 
     public Point getMidPoint(){
-        var firstPoint = (point1.getX() + point2.getX()) /2
-        var secondPoint = (point1.getY() + point2.getY()) /2
+        var firstPoint = (point1.getX() + point2.getX()) /2;
+        var secondPoint = (point1.getY() + point2.getY()) /2;
         return new Point(firstPoint, secondPoint);
     }
 
