@@ -6,13 +6,14 @@ import java.util.HashMap;
 public class App {
 
     public static void swapKeyValue(KeyValueStorage storage) {
-        var storageMap = storage.toMap();
+        var storageMap = new HashMap<>(storage.toMap());
         var swipeMap = new HashMap<String, String>();
 
         storageMap.forEach((key, value) -> swipeMap.put(value, key));
 
-        storageMap.clear();
-        storageMap.putAll(swipeMap);
+        for (var entry : swipeMap.entrySet()) {
+            storage.set(entry.getKey(), entry.getValue());
+        }
     }
 }
 
