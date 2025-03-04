@@ -12,30 +12,30 @@ public class FileKV implements KeyValueStorage {
     public FileKV(String path, Map<String, String> map) {
         this.path = path;
         this.map = new HashMap<>(map);
-        String currentValue = readFile(path);
-        var currentValueMap = deserialize(currentValue);
+        String currentValue = Utils.readFile(path);
+        var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.putAll(map);
-        String content = serialize(currentValueMap);
+        String content = Utils.serialize(currentValueMap);
         writeFile(path, content);
     }
 
     @Override
     public void set(String key, String value) {
         map.put(key, value);
-        String currentValue = readFile(path);
-        var currentValueMap = deserialize(currentValue);
+        String currentValue = Utils.readFile(path);
+        var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.put(key, value);
-        String content = serialize(currentValueMap);
+        String content = Utils.serialize(currentValueMap);
         writeFile(path, content);
     }
 
     @Override
     public void unset(String key) {
         map.remove(key);
-        String currentValue = readFile(path);
-        var currentValueMap = deserialize(currentValue);
+        String currentValue = Utils.readFile(path);
+        var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.remove(key);
-        String content = serialize(currentValueMap);
+        String content = Utils.serialize(currentValueMap);
         writeFile(path, content);
     }
 
