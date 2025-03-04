@@ -16,7 +16,7 @@ public class FileKV implements KeyValueStorage {
         var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.putAll(map);
         String content = Utils.serialize(currentValueMap);
-        writeFile(path, content);
+        Utils.writeFile(path, content);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class FileKV implements KeyValueStorage {
         var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.put(key, value);
         String content = Utils.serialize(currentValueMap);
-        writeFile(path, content);
+        Utils.writeFile(path, content);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class FileKV implements KeyValueStorage {
         var currentValueMap = Utils.deserialize(currentValue);
         currentValueMap.remove(key);
         String content = Utils.serialize(currentValueMap);
-        writeFile(path, content);
+        Utils.writeFile(path, content);
     }
 
     @Override
