@@ -65,7 +65,6 @@ class AppTest {
         assertEquals('e', text.charAt(1));
         assertEquals(6, text.length());
         assertEquals("edc", text.subSequence(1, 4).toString());
-
     }
     
     // END
