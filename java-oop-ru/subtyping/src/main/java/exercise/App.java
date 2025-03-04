@@ -1,13 +1,11 @@
 package exercise;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.HashMap;
 
 // BEGIN
 public class App {
 
-    public static void swapKeyValue (KeyValueStorage storage) {
+    public static void swapKeyValue(KeyValueStorage storage) {
         var storageMap = storage.toMap();
         var swipeMap = new HashMap<String, String>();
 

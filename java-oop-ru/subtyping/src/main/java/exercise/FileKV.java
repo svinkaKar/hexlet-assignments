@@ -1,5 +1,10 @@
 package exercise;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static exercise.Utils;
+
 // BEGIN
 public class FileKV implements KeyValueStorage {
 
