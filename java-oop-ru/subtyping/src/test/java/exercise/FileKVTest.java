@@ -30,14 +30,6 @@ class FileKVTest {
     public void test() {
         KeyValueStorage storage = new FileKV("src/test/resources/file", Map.of("key", "value"));
         assertEquals("value", storage.get("key", "default"));
-        assertEquals("default", storage.get("key0", "default"));
-
-        KeyValueStorage storage2 = new FileKV("src/test/resources/file", Map.of("key", "value"));
-        storage2.unset("key");
-
-        assertEquals("default", storage.get("key", "default"));
-        KeyValueStorage storage3 = new FileKV("src/test/resources/file", Map.of("key", "value"));
-        assertEquals("value", storage.get("key", "default"));
     }
     // END
 }

@@ -46,7 +46,7 @@ public class FileKV implements KeyValueStorage {
 
     @Override
     public Map<String, String> toMap() {
-        return map;
+        return new HashMap<>(map);
     }
 }
 
