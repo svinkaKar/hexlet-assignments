@@ -1,6 +1,7 @@
 package exercise;
 
 // BEGIN
+import java.util.Locale;
 public class Cottage implements Home {
 
     private double area;
