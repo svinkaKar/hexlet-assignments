@@ -13,7 +13,7 @@ public class Cottage implements Home {
 
     public String toString() {
         String formattedNumber = String.format(Locale.US, "%.1f", getArea());
-        return String.format("%d этажный коттедж площадью %s метров", floorCount, formattedNumber);
+        return String.format("%d СЌС‚Р°Р¶РЅС‹Р№ РєРѕС‚С‚РµРґР¶ РїР»РѕС‰Р°РґСЊСЋ %s РјРµС‚СЂРѕРІ", floorCount, formattedNumber);
     }
 
     public double getArea() {

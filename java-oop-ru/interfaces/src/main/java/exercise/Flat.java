@@ -19,7 +19,7 @@ public class Flat implements Home {
 
     public String toString() {
         String formattedNumber = String.format(Locale.US, "%.1f", getArea());
-        return String.format("Квартира площадью %s метров на %d этаже", formattedNumber, floor);
+        return String.format("РљРІР°СЂС‚РёСЂР° РїР»РѕС‰Р°РґСЊСЋ %s РјРµС‚СЂРѕРІ РЅР° %d СЌС‚Р°Р¶Рµ", formattedNumber, floor);
     }
 
     public int compareTo(Home another) {
