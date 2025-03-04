@@ -23,7 +23,7 @@ public class Flat implements Home {
     }
 
     public int compareTo(Home another) {
-        if (this.getArea() == another.getArea()){
+        if (this.getArea() == another.getArea()) {
             return 0;
         }
         return this.getArea() > another.getArea() ? 1 : -1;

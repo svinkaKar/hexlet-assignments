@@ -11,7 +11,7 @@ public class Cottage implements Home {
         this.floorCount = floorCount;
     }
 
-    public String toString(){
+    public String toString() {
         String formattedNumber = String.format(Locale.US, "%.1f", getArea());
         return String.format("%d этажный коттедж площадью %s метров", floorCount, formattedNumber);
     }
