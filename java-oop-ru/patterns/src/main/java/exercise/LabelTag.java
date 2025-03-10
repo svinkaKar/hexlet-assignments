@@ -13,7 +13,7 @@ public class LabelTag implements TagInterface {
 
     @Override
     public String render() {
-        return String.format("<label>%s=%s", tagText, tagInf.render());
+        return String.format("<label>%s=%s</label>", tagText, tagInf.render());
     }
 }
 
