@@ -1,13 +1,15 @@
 package exercise;
 
 // BEGIN
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class LabelTag implements TagInterface {
 
     private String tagText;
     private TagInterface tagInf;
+
+    public LabelTag(String tagText, TagInterface tagInf) {
+        this.tagText = tagText;
+        this.tagInf = tagInf;
+    }
 
     @Override
     public String render() {

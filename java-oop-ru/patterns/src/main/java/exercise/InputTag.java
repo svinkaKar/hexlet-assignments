@@ -1,13 +1,15 @@
 package exercise;
 
 // BEGIN
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class InputTag implements TagInterface {
 
     private String type;
     private String value;
+
+    public InputTag(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
 
     @Override
     public String render() {
