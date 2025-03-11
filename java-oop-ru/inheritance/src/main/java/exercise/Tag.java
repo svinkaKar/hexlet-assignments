@@ -1,12 +1,10 @@
 package exercise;
 
 import java.util.Map;
-import lombok.Getter;
 
 import java.util.LinkedHashMap;
 
 // BEGIN
-@Getter
 public class Tag {
 
     public String nameTag;
@@ -15,6 +13,14 @@ public class Tag {
     public Tag(String nameTag, Map<String, String> atributesTag) {
         this.nameTag = nameTag;
         this.atributesTag = atributesTag;
+    }
+
+    public String getNameTag() {
+        return nameTag;
+    }
+
+    public Map<String, String> getAtributesTag() {
+        return atributesTag;
     }
 
     public String getAtributes(String nameOfTag, Map<String, String> atributesForTag) {
