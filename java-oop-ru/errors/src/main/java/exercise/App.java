@@ -7,9 +7,9 @@ public class App {
         try {
             System.out.println(String.format("%.0f", circle.getSquare()));
         } catch (NegativeRadiusException e) {
-            System.out.println("Не удалось посчитать площадь");
+            System.out.println("РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕСЃС‡РёС‚Р°С‚СЊ РїР»РѕС‰Р°РґСЊ");
         } finally {
-            System.out.println("Вычисление окончено");
+            System.out.println("Р’С‹С‡РёСЃР»РµРЅРёРµ РѕРєРѕРЅС‡РµРЅРѕ");
         }
     }
 }
