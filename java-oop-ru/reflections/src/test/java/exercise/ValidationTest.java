@@ -34,8 +34,7 @@ class ValidationTest {
         Map<String, List<String>> result = Validator.advancedValidate(address);
         Map<String, List<String>> expected = Map.of("country", List.of("length less than 4"),
                 "street", List.of("can not be null"));
-        assertEquals(result,expected);
+        assertThat(result).isEqualTo(expected);
     }
-    
     // END
 }

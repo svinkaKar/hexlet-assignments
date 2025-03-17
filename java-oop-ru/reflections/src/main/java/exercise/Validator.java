@@ -38,7 +38,7 @@ public class Validator {
             notValideFields.put(field, List.of("can not be null"));
         }
 
-        for(Field field : fields) {
+        for (Field field : fields) {
             field.setAccessible(true);
             String value;
             try {
