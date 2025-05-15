@@ -15,13 +15,15 @@ public final class App {
         });
 
         // BEGIN
-        var page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
-        var per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
-        per = Math.min(per, USERS.size());
-        var resultList =
-                USERS.subList(Math.min((page - 1) * per, USERS.size() - per),
-                        Math.min(page * per, USERS.size()));
-        app.get("/users", ctx -> ctx.json(resultList));
+        app.get("/users", ctx -> {
+            var page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
+            var per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
+            per = Math.min(per, USERS.size());
+            var resultList =
+                    USERS.subList(Math.min((page - 1) * per, USERS.size() - per),
+                            Math.min(page * per, USERS.size()));
+            ctx.json(resultList);
+        });
         // END
 
         return app;
