@@ -42,8 +42,8 @@ public class Application {
 
     @PostMapping("/posts")
     public Post create(@RequestBody Post post) {
-        posts.add(page);
-        return page;
+        posts.add(post);
+        return post;
     }
 
     @PutMapping("/posts/{id}")
