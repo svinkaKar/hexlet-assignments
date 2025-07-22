@@ -28,8 +28,11 @@ public class Application {
 
     // BEGIN
     @GetMapping("/posts")
-    public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    public Page<Post> getAllPosts(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "10") int limit) {
+        Pageable pageable = PageRequest.of(page - 1, limit, Sort.by("id").ascending());
+        return postRepository.findAll(pageable);
     }
 
     @GetMapping("/posts/{id}")
@@ -57,7 +60,7 @@ public class Application {
             post.setName(data.getName());
             post.setBody(data.getBody());
         }
-        return data;
+        return post;
     }
 
     @DeleteMapping("/posts/{id}") // Удаление страницы
