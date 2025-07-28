@@ -1,6 +1,5 @@
 package exercise;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -68,7 +67,6 @@ public class Application {
         }
         return ResponseEntity.of(maybePost);
     }
-    
     // END
 
     @DeleteMapping("/posts/{id}")
