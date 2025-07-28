@@ -27,7 +27,7 @@ public class PostsController {
     @PostMapping("/users/{id}/posts")
     @ResponseStatus(HttpStatus.CREATED)
     public Post createUserPost(@PathVariable("id") int userId, @RequestBody Post postDto) {
-        Post userPost = new Post(postDto.getSlug(), postDto.getTitle(), postDto.getBody(), userId);
+        Post userPost = new Post(userId, postDto.getSlug(), postDto.getTitle(), postDto.getBody());
         posts.add(userPost);
         return userPost;
     }
@@ -37,7 +37,7 @@ public class PostsController {
     public List<Post> getUserPosts(@PathVariable("id") int userId) {
         return posts.stream()
                 .filter(post -> post.getUserId() == userId)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
 // END
