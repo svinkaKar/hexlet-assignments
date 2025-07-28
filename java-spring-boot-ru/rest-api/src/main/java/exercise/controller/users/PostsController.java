@@ -20,15 +20,20 @@ import exercise.Data;
 @RequestMapping("/api")
 public class PostsController {
 
+    @Setter
+    private static List<Post> posts = Data.getPosts();
+
     @PostMapping("/posts")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Post> create(@RequestBody Post post) {
         posts.add(post);
         return ResponseEntity.status(HttpStatus.CREATED).body(post);
     }
 
-    @PostMapping("/users/{id}/posts")
+    @GetMapping("/users/{id}/posts")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Post> create2(@PathVariable String id, @RequestBody String slug,
-                                        @RequestBody String title, @RequestBody String body ) {
+                                        @RequestBody String title, @RequestBody String body) {
         var userPost = new Post(slug, title, body, Integer.valueOf(id));
         posts.add(userPost);
         return ResponseEntity.status(HttpStatus.CREATED).body(userPost);
