@@ -27,7 +27,11 @@ public class PostsController {
     @PostMapping("/users/{id}/posts")
     @ResponseStatus(HttpStatus.CREATED)
     public Post createUserPost(@PathVariable("id") int userId, @RequestBody Post postDto) {
-        Post userPost = new Post(userId, postDto.getSlug(), postDto.getTitle(), postDto.getBody());
+        Post userPost = new Post();
+        userPost.setUserId(userId);
+        userPost.setSlug(postDto.getSlug());
+        userPost.setTitle(postDto.getTitle());
+        userPost.setBody(postDto.getBody());
         posts.add(userPost);
         return userPost;
     }
