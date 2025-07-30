@@ -2,14 +2,15 @@ package exercise;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
 import exercise.model.User;
-import org.springframework.beans.factory.annotation.Value;
-import java.util.stream.Collectors;
+import exercise.component.UserProperties;
 
 @SpringBootApplication
 @RestController
@@ -19,22 +20,28 @@ public class Application {
     private List<User> users = Data.getUsers();
 
     // BEGIN
-    @Value("${users.admins}")
-    private List<String> adminsEmails;
+    @Value("${users.admins[0]}")
+    private String emails1;
 
-    @GetMapping("/admins")
-    public List<String> getAdmins() {
-        return adminsEmails.stream()
-                .map(email -> {
-                    int atIndex = email.indexOf('@');
-                    if (atIndex > 0) {
-                        return email.substring(0, atIndex);
-                    } else {
-                        return email;
-                    }
-                })
+    @Value("${users.admins[1]}")
+    private String emails2;
+
+    @Value("${users.admins[2]}")
+    private String emails3;
+
+    private List<String> emails = new ArrayList<>();
+
+    @GetMapping("/")
+    ResponseEntity<List<String>> home() {
+        emails.add(emails1);
+        emails.add(emails2);
+        emails.add(emails3);
+
+        List<String> sortedEmails = emails.stream()
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
+        return ResponseEntity.status(200)
+                .body(sortedEmails);
     }
     // END
 
