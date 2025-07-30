@@ -3,7 +3,8 @@
 spring:
   output:
     ansi:
-      enabled: true
+      enabled: ALWAYS
+
 server:
   port: 7070
 # END
