@@ -31,8 +31,8 @@ public class Application {
 
     private List<String> emails = new ArrayList<>();
 
-    @GetMapping("/")
-    ResponseEntity<List<String>> home() {
+    @GetMapping("/admins")
+    public <List<String>> home() {
         emails.add(emails1);
         emails.add(emails2);
         emails.add(emails3);
@@ -40,8 +40,7 @@ public class Application {
         List<String> sortedEmails = emails.stream()
                 .sorted()
                 .toList();
-        return ResponseEntity.status(200)
-                .body(sortedEmails);
+        return sortedEmails;
     }
     // END
 
