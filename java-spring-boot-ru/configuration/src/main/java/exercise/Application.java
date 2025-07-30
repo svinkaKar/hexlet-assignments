@@ -39,10 +39,13 @@ public class Application {
         emails.add(emails2);
         emails.add(emails3);
 
-        List<String> sortedEmails = emails.stream()
-                .sorted()
+        List<String> filteredSorted = users.stream()
+                .filter(user -> emails.contains(user.getEmail()))
+                .sorted((u1, u2) -> u1.getName().compareToIgnoreCase(u2.getName()))
+                .map(User::getName)
                 .toList();
-        return sortedEmails;
+        
+        return filteredSorted;
     }
     // END
 
