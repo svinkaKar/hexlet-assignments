@@ -32,7 +32,7 @@ public class Application {
     private List<String> emails = new ArrayList<>();
 
     @GetMapping("/admins")
-    public <List<String>> home() {
+    public List<String> home() {
         emails.add(emails1);
         emails.add(emails2);
         emails.add(emails3);
