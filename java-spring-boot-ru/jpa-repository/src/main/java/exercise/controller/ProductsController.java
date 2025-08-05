@@ -27,12 +27,12 @@ public class ProductsController {
             @RequestParam(required = false) Integer min,
             @RequestParam(required = false) Integer max) {
         if (min == null && max == null) {
-            return productRepository.findAll();
+            return productRepository.findAll(Sort.by(Sort.Order.asc("price")));
         }
 
         min = min == null ? 0 : min;
         max = max == null ? Integer.MAX_VALUE : max;
-        return productRepository.findByPriceBetween(min, max);
+        return productRepository.findByPriceBetween(min, max, Sort.by(Sort.Order.asc("price")));
     }
     // END
 
