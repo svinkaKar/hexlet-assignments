@@ -31,8 +31,7 @@ public class CommentsController {
         return commentRepository.findAll();
     }
 
-    @GetMapping
-    @RequestMapping(path = "{id}")
+    @GetMapping(path = "{id}")
     public Comment getComment(@PathVariable Long id) {
         return commentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Comment not found"));
     }
@@ -43,8 +42,7 @@ public class CommentsController {
         return commentRepository.save(comment);
     }
 
-    @PutMapping
-    @RequestMapping(path = "{id}")
+    @PutMapping(path = "{id}")
     public Comment updateComment(@PathVariable Long id, @RequestBody Comment comment) {
         return commentRepository.findById(id)
                 .map(com -> {
@@ -53,8 +51,7 @@ public class CommentsController {
                 }).orElseThrow(() -> new ResourceNotFoundException("Comment not found"));
     }
 
-    @DeleteMapping
-    @RequestMapping(path = "{id}")
+    @DeleteMapping(path = "{id}")
     public void deleteComment(@PathVariable Long id) {
         commentRepository.deleteById(id);
     }
