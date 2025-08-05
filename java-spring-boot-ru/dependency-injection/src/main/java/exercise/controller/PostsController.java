@@ -55,7 +55,7 @@ public class PostsController {
                 }).orElseThrow(() -> new ResourceNotFoundException("Post not found"));
     }
 
-    @DeleteMapping
+    @DeleteMapping(path = "{id}")
     public void deletePost(@PathVariable long id) {
         postRepository.deleteById(id);
         commentRepository.deleteByPostId(id);
