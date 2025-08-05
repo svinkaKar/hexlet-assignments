@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.EntityListeners;
 import static jakarta.persistence.GenerationType.IDENTITY;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +28,6 @@ public class Task {
     @CreatedDate
     private LocalDate createdAt;
     @LastModifiedDate
-    private LocalDate updatedAt ;
+    private LocalDate updatedAt;
 }
 // END
