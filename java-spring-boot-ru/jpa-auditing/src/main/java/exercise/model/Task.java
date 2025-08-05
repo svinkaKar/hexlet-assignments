@@ -21,7 +21,6 @@ import java.time.LocalDate;
 @EntityListeners(AuditingEntityListener.class)
 public class Task {
     @Id
-    @GenerationType(strategy = IDENTITY)
     private Long id;
     private String title;
     private String description;
